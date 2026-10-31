@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Massylia, veux-tu être ma copine ?</title>
+<meta name="description" content="Une demande officielle, version Halloween.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Creepster&family=Rubik:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+  :root { --accent: #FF7A1A; --bg: #0E0A16; --ink: #F4EEFF; --muted: #C9BEDC; --card: #1A1326; --line: #4A3B63; --dark: #1A0F24; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; background: #07050C; }
+  body { min-height: 100vh; display: flex; justify-content: center; align-items: flex-start; overflow-x: hidden; }
+  .stage { width: 1080px; height: 1350px; transform-origin: top left; }
+  .poster { width: 1080px; height: 1350px; position: relative; overflow: hidden; background: var(--bg); color: var(--ink); font-family: Rubik, system-ui, sans-serif; padding: 72px; display: flex; flex-direction: column; gap: 40px; }
+  .spooky { font-family: Creepster, cursive; font-weight: 400; letter-spacing: 0.02em; }
+  .abs { position: absolute; }
+  .tag { margin: 0; font-size: 20px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--accent); }
+  h1 { margin: 0; font-size: 132px; line-height: 0.95; }
+  h2 { margin: 0; font-size: 84px; line-height: 1; color: var(--accent); max-width: 780px; }
+  .lead { margin: 8px 0 0; font-size: 26px; line-height: 1.4; color: var(--muted); max-width: 760px; }
+  .row { display: flex; gap: 48px; align-items: center; }
+  .terms { flex: 1; display: flex; flex-direction: column; gap: 16px; background: var(--card); border: 2px dashed var(--line); border-radius: 20px; padding: 28px 32px; }
+  .terms p { margin: 0; font-size: 22px; line-height: 1.4; }
+  .terms .title { font-size: 18px; font-weight: 800; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent); }
+  .ask { display: flex; flex-direction: column; gap: 14px; }
+  .ask > p { margin: 0; font-size: 20px; font-weight: 700; color: var(--muted); }
+  .buttons { position: relative; height: 170px; }
+  button { cursor: pointer; }
+  .yes { position: absolute; left: 0; top: 0; width: 240px; height: 80px; border: 0; border-radius: 16px; background: var(--accent); color: var(--dark); font-size: 44px; }
+  .sure { position: absolute; left: 264px; top: 0; width: 310px; height: 80px; border: 3px solid var(--accent); border-radius: 16px; background: transparent; color: var(--accent); font-size: 40px; }
+  .yes:hover, .sure:hover { transform: scale(1.04); }
+  .no { position: absolute; left: 620px; top: 14px; height: 52px; padding: 0 22px; border: 2px solid var(--line); border-radius: 12px; background: var(--card); color: #9C90B2; font-family: Rubik, system-ui, sans-serif; font-size: 20px; font-weight: 500; transition: left .18s ease, top .18s ease; }
+  .signed { display: none; flex-direction: column; gap: 10px; background: var(--accent); color: var(--dark); border-radius: 20px; padding: 28px 32px; min-height: 170px; justify-content: center; }
+  .signed p { margin: 0; }
+  .signed .big { font-size: 60px; line-height: 1; }
+  .signed .small { font-size: 24px; font-weight: 500; line-height: 1.4; }
+  .accepted .ask { display: none; }
+  .accepted .signed { display: flex; }
+  footer { margin-top: auto; display: flex; justify-content: space-between; align-items: flex-end; gap: 32px; border-top: 1px solid #2E2440; padding-top: 24px; }
+  footer p { margin: 0; }
+  .sig { font-size: 26px; font-weight: 700; }
+  .ps { font-size: 18px; line-height: 1.4; color: #A99DBF; max-width: 380px; text-align: right; }
+  .heart { position: absolute; pointer-events: none; animation: float 2.6s ease-out forwards; }
+  @keyframes float { from { transform: translateY(0) scale(.6); opacity: 1; } to { transform: translateY(-520px) scale(1.2); opacity: 0; } }
+  .pumpkin { animation: wobble 3s ease-in-out infinite; transform-origin: 50% 90%; }
+  @keyframes wobble { 0%,100% { transform: rotate(-3deg); } 50% { transform: rotate(3deg); } }
+  @media (prefers-reduced-motion: reduce) { .pumpkin, .heart { animation: none; } .no { transition: none; } }
+</style>
+</head>
+<body>
+<div class="stage" id="stage">
+<main class="poster" id="poster">
+
+  <svg class="abs" aria-hidden="true" width="300" height="300" viewBox="0 0 300 300" style="right:-60px;top:-60px">
+    <circle cx="150" cy="150" r="130" fill="#F3E9C6"/>
+    <circle cx="110" cy="120" r="22" fill="#E2D6AC"/>
+    <circle cx="180" cy="190" r="30" fill="#E2D6AC"/>
+    <circle cx="200" cy="100" r="12" fill="#E2D6AC"/>
+  </svg>
+  <svg class="abs" aria-hidden="true" width="90" height="30" viewBox="0 0 60 20" style="right:290px;top:70px"><path d="M0 8 Q10 0 20 7 Q24 2 30 9 Q36 2 40 7 Q50 0 60 8 Q49 8 45 15 Q38 9 30 17 Q22 9 15 15 Q11 8 0 8Z" fill="#000"/></svg>
+  <svg class="abs" aria-hidden="true" width="60" height="20" viewBox="0 0 60 20" style="right:230px;top:150px"><path d="M0 8 Q10 0 20 7 Q24 2 30 9 Q36 2 40 7 Q50 0 60 8 Q49 8 45 15 Q38 9 30 17 Q22 9 15 15 Q11 8 0 8Z" fill="#000"/></svg>
+  <svg class="abs" aria-hidden="true" width="72" height="24" viewBox="0 0 60 20" style="right:40px;top:260px"><path d="M0 8 Q10 0 20 7 Q24 2 30 9 Q36 2 40 7 Q50 0 60 8 Q49 8 45 15 Q38 9 30 17 Q22 9 15 15 Q11 8 0 8Z" fill="#2A2238"/></svg>
+
+  <header style="display:flex;flex-direction:column;gap:14px;position:relative">
+    <p class="tag">Avis officiel · Nuit du 31 octobre</p>
+    <h1 class="spooky">Massylia,</h1>
+    <h2 class="spooky">veux-tu être ma copine ?</h2>
+    <p class="lead">Halloween est fini. Mes sentiments, eux, ne sont pas déguisés.</p>
+  </header>
+
+  <section class="row">
+    <svg class="pumpkin" role="img" aria-label="Citrouille avec des yeux en cœur" width="280" height="260" viewBox="0 0 280 260" style="flex-shrink:0">
+      <path d="M134 40 Q130 14 150 6 L158 16 Q144 22 148 42Z" fill="#3E8E41"/>
+      <ellipse cx="80" cy="150" rx="70" ry="98" fill="#E8620F"/>
+      <ellipse cx="200" cy="150" rx="70" ry="98" fill="#E8620F"/>
+      <ellipse cx="140" cy="150" rx="78" ry="104" fill="#FF7A1A"/>
+      <path d="M60 112 c0 0 -18 -14 -18 -25 c0 -6 5 -11 11 -11 c3 0 6 2 7 4 c1 -2 4 -4 7 -4 c6 0 11 5 11 11 c0 11 -18 25 -18 25Z" fill="#1A0F24" transform="translate(28 18) scale(1.25)"/>
+      <path d="M60 112 c0 0 -18 -14 -18 -25 c0 -6 5 -11 11 -11 c3 0 6 2 7 4 c1 -2 4 -4 7 -4 c6 0 11 5 11 11 c0 11 -18 25 -18 25Z" fill="#1A0F24" transform="translate(118 18) scale(1.25)"/>
+      <path d="M78 172 L96 188 L112 172 L128 190 L144 172 L160 190 L176 172 L192 188 L204 172 Q170 222 140 222 Q104 222 78 172Z" fill="#1A0F24"/>
+      <ellipse cx="66" cy="168" rx="14" ry="8" fill="#FF9E8A" opacity="0.6"/>
+      <ellipse cx="214" cy="168" rx="14" ry="8" fill="#FF9E8A" opacity="0.6"/>
+    </svg>
+    <div class="terms">
+      <p class="title">Conditions de l'offre</p>
+      <p>Je partage tous mes bonbons. Même les Twix. Même le dernier.</p>
+      <p>0 % zombie, 100 % sérieux (bon, 95 %).</p>
+      <p>Si tu dis non, ce poster te hante jusqu'à Noël.</p>
+    </div>
+  </section>
+
+  <section class="ask">
+    <p>Coche ta réponse :</p>
+    <div class="buttons">
+      <button type="button" class="yes spooky" data-yes>OUI</button>
+      <button type="button" class="sure spooky" data-yes>Évidemment</button>
+      <button type="button" class="no" id="no">Non</button>
+    </div>
+  </section>
+
+  <section class="signed" aria-live="polite">
+    <p class="big spooky">Contrat signé !</p>
+    <p class="small">Signé avec du sang… de grenadine. Aucun retour possible, même avec une formule magique.</p>
+  </section>
+
+  <footer>
+    <p class="sig">— Isaac, ton fantôme préféré</p>
+    <p class="ps">PS : réponds avant minuit, sinon je me transforme en citrouille.</p>
+  </footer>
+</main>
+</div>
+
+<script>
+  (function () {
+    var stage = document.getElementById('stage');
+    var poster = document.getElementById('poster');
+    function fit() {
+      var s = Math.min(1, window.innerWidth / 1080);
+      stage.style.transform = 'scale(' + s + ')';
+      stage.style.marginRight = (1080 * s - 1080) + 'px';
+      stage.style.marginBottom = (1350 * s - 1350) + 'px';
+    }
+    window.addEventListener('resize', fit);
+    fit();
+
+    var spots = [[620,14],[790,104],[30,108],[780,10],[330,108],[600,104]];
+    var labels = ['Non', 'Sûre ?', 'Raté', 'Trop lente', 'Abandonne', 'Bon, dis oui'];
+    var step = 0;
+    var no = document.getElementById('no');
+    function run(e) {
+      if (e) e.preventDefault();
+      step++;
+      var p = spots[step % spots.length];
+      no.style.left = p[0] + 'px';
+      no.style.top = p[1] + 'px';
+      no.textContent = labels[Math.min(step, labels.length - 1)];
+    }
+    no.addEventListener('mouseenter', run);
+    no.addEventListener('touchstart', run, { passive: false });
+    no.addEventListener('click', run);
+
+    function hearts() {
+      for (var i = 0; i < 24; i++) {
+        var h = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+        h.setAttribute('viewBox', '0 0 24 24');
+        h.setAttribute('width', 28 + Math.random() * 30);
+        h.setAttribute('aria-hidden', 'true');
+        h.classList.add('heart');
+        h.style.left = (Math.random() * 1000) + 'px';
+        h.style.top = (900 + Math.random() * 400) + 'px';
+        h.style.animationDelay = (Math.random() * 0.8) + 's';
+        h.innerHTML = '<path d="M12 21s-9-7-9-12.5C3 5.4 5.4 3 8.3 3c1.7 0 3 .9 3.7 2 .7-1.1 2-2 3.7-2C18.6 3 21 5.4 21 8.5 21 14 12 21 12 21z" fill="' + (i % 2 ? '#FF7A1A' : '#FF4D6D') + '"/>';
+        poster.appendChild(h);
+      }
+    }
+    document.querySelectorAll('[data-yes]').forEach(function (b) {
+      b.addEventListener('click', function () {
+        poster.classList.add('accepted');
+        hearts();
+      });
+    });
+  })();
+</script>
+</body>
+</html>
