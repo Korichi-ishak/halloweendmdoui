@@ -155,21 +155,39 @@
       }
     }
     var sent = false;
+    var openedAt = Date.now();
+    function pad(n) { return (n < 10 ? '0' : '') + n; }
+    function verdict(n) {
+      if (n === 0) return 'Zéro hésitation. Elle attendait que ça.';
+      if (n <= 2) return 'A fait semblant de résister (' + n + ' essai' + (n > 1 ? 's' : '') + '). Personne n\'y a cru.';
+      return 'A couru après le bouton Non pendant ' + n + ' essais. En vain. Dossier à ressortir à chaque dispute.';
+    }
     function notify(answer) {
       if (sent) return;
       sent = true;
       var d = new Date();
+      var secs = Math.round((Date.now() - openedAt) / 1000);
+      var reflexion = secs < 60 ? secs + ' secondes' : Math.floor(secs / 60) + ' min ' + pad(secs % 60) + ' s';
+      var num = 'HLW-' + String(d.getTime()).slice(-6);
+      var data = {
+        _subject: 'Ticket ' + num + ' · Massylia a signé (' + answer + ')',
+        _template: 'box',
+        _captcha: 'false'
+      };
+      data['Ticket'] = num + ' · Contrat de copine';
+      data['Bouton choisi'] = answer;
+      data['Statut'] = 'SIGNÉ · irrévocable, non remboursable';
+      data['Temps de réflexion'] = reflexion;
+      data['Tentatives de fuite (bouton Non)'] = String(step);
+      data['Verdict'] = verdict(step);
+      data['Signé avec'] = 'du sang… de grenadine';
+      data['Témoin'] = 'la citrouille aux yeux en cœur';
+      data['Validité'] = 'À vie';
+      data['Heure de signature'] = d.toLocaleString('fr-FR', { timeZone: 'Europe/Paris' });
       fetch('https://formsubmit.co/ajax/ishakkorichi09@gmail.com', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-        body: JSON.stringify({
-          _subject: 'Réponse de Massylia : ' + answer,
-          _template: 'table',
-          _captcha: 'false',
-          reponse: answer,
-          essais_sur_non: String(step),
-          heure: d.toLocaleString('fr-FR', { timeZone: 'Europe/Paris' })
-        })
+        body: JSON.stringify(data)
       }).catch(function () { sent = false; });
     }
     document.querySelectorAll('[data-yes]').forEach(function (b) {
