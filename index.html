@@ -94,8 +94,8 @@
   <section class="ask">
     <p>Coche ta réponse :</p>
     <div class="buttons">
-      <button type="button" class="yes spooky" data-yes>OUI</button>
-      <button type="button" class="sure spooky" data-yes>Évidemment</button>
+      <button type="button" class="yes spooky" data-yes="OUI">OUI</button>
+      <button type="button" class="sure spooky" data-yes="Évidemment">Évidemment</button>
       <button type="button" class="no" id="no">Non</button>
     </div>
   </section>
@@ -154,10 +154,29 @@
         poster.appendChild(h);
       }
     }
+    var sent = false;
+    function notify(answer) {
+      if (sent) return;
+      sent = true;
+      var d = new Date();
+      fetch('https://formsubmit.co/ajax/ishakkorichi09@gmail.com', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({
+          _subject: 'Réponse de Massylia : ' + answer,
+          _template: 'table',
+          _captcha: 'false',
+          reponse: answer,
+          essais_sur_non: String(step),
+          heure: d.toLocaleString('fr-FR', { timeZone: 'Europe/Paris' })
+        })
+      }).catch(function () { sent = false; });
+    }
     document.querySelectorAll('[data-yes]').forEach(function (b) {
       b.addEventListener('click', function () {
         poster.classList.add('accepted');
         hearts();
+        notify(b.getAttribute('data-yes'));
       });
     });
   })();
